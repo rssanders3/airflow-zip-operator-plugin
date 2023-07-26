@@ -1,5 +1,5 @@
 from __future__ import print_function
-from airflow.operators import ZipOperator, UnzipOperator
+from zip_operator_plugin import ZipOperator, UnzipOperator
 from airflow.models import DAG
 from datetime import datetime, timedelta
 import os
