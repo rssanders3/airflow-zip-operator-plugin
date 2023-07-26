@@ -34,7 +34,7 @@ A plugin to Apache Airflow (Documentation: https://pythonhosted.org/airflow/, So
 
 ### Operator Definition
 
-class **airflow.operators.ZipOperator**(input_file_path, output_file_path, *args, **kwargs)
+class **zip_operator_plugin.ZipOperator**(input_file_path, output_file_path, *args, **kwargs)
 
 Bases: **airflow.operators.BaseOperator**
 
@@ -48,7 +48,7 @@ Parameters:
 ### Example
 
     ```
-    from airflow.operators import ZipOperator
+    from zip_operator_plugin import ZipOperator
     
     zip_task = ZipOperator(
         task_id='zip_task',
@@ -62,7 +62,7 @@ Parameters:
 
 ### Operator Definition
 
-class **airflow.operators.UnzipOperator**(input_file_path, output_file_path, *args, **kwargs)
+class **zip_operator_plugin.UnzipOperator**(input_file_path, output_file_path, *args, **kwargs)
 
 Bases: **airflow.operators.BaseOperator**
 
@@ -76,7 +76,7 @@ Parameters:
 ### Example
 
     ```
-    from airflow.operators import UnzipOperator
+    from zip_operator_plugin import UnzipOperator
     
     unzip_task = UnzipOperator(
         task_id='unzip_task',

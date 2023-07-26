@@ -2,7 +2,7 @@ __author__ = 'rssanders3'
 
 from airflow.plugins_manager import AirflowPlugin
 from airflow.models import BaseOperator
-from airflow.utils import apply_defaults
+from airflow.utils.decorators import apply_defaults
 from zipfile import ZipFile
 import os
 import logging
@@ -30,9 +30,11 @@ class ZipOperator(BaseOperator):
     @apply_defaults
     def __init__(
             self,
+            task_id,
             path_to_file_to_zip,
             path_to_save_zip,
             *args, **kwargs):
+        super().__init__(task_id=task_id, *args, **kwargs)
         self.path_to_file_to_zip = path_to_file_to_zip
         self.path_to_save_zip = path_to_save_zip
 
@@ -98,9 +100,11 @@ class UnzipOperator(BaseOperator):
     @apply_defaults
     def __init__(
             self,
+            task_id,
             path_to_zip_file,
             path_to_unzip_contents,
             *args, **kwargs):
+        super().__init__(task_id=task_id, *args, **kwargs)
         self.path_to_zip_file = path_to_zip_file
         self.path_to_unzip_contents = path_to_unzip_contents
 
